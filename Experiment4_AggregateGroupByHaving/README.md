@@ -37,124 +37,210 @@ HAVING condition;
 ```
 
 **Question 1**
---
--- Paste Question 1 here
+```
+Write a SQL query to find the average salary of all employees?
 
-```sql
--- Paste your SQL code below for Question 1
+Table: employee
+
+name        type
+----------  ----------
+id          INTEGER
+name        TEXT
+age         INTEGER
+city        TEXT
+income      INTEGER
+``` 
+
+```
+SELECT AVG(income) AS Average_Salary
+FROM employee;
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="1296" height="354" alt="image" src="https://github.com/user-attachments/assets/4cd0a2b9-10b7-486b-b9a2-a1b5980d4d7b" />
+
 
 **Question 2**
----
--- Paste Question 2 here
+```
+Write a SQL query to calculate the total number of working hours of all employees
+```
+<img width="1181" height="292" alt="image" src="https://github.com/user-attachments/assets/dca9c23d-57e1-46d7-92fe-38c3dac98432" />
 
-```sql
--- Paste your SQL code below for Question 2
+
+
+```
+SELECT SUM(workhour) AS 'Total working hours'
+FROM  employee1;
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="1262" height="364" alt="image" src="https://github.com/user-attachments/assets/dd2b796d-1cb6-4d0f-b670-3749a5fe0cfa" />
+
 
 **Question 3**
----
--- Paste Question 3 here
+```
+Write a SQL query to determine the number of customers who received at least one grade for their activity.
 
-```sql
--- Paste your SQL code below for Question 3
+Sample table: customer
+
+customer_id |   cust_name    |    city    | grade | salesman_id 
+
+-------------+----------------+------------+-------+-------------
+
+        3002 | Nick Rimando   | New York   |   100 |        5001
+
+        3007 | Brad Davis     | New York   |   200 |        5001
+
+        3005 | Graham Zusi    | California |   200 |        5002
+```
+
+```
+SELECT COUNT(customer_id) AS COUNT
+FROM customer
+WHERE grade IS NOT NULL;
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1284" height="358" alt="image" src="https://github.com/user-attachments/assets/c5463b79-ce6e-4ad1-bcc8-15362214b70e" />
+
 
 **Question 4**
----
--- Paste Question 4 here
+```
+Write the SQL query that accomplishes the grouping of data by joining date (jdate), calculates the minimum work hours for each date, and excludes dates where the minimum work hour is not less than 10. Sample table: employee1
+```
 
-```sql
--- Paste your SQL code below for Question 4
+```
+SELECT jdate,MIN(workhour) AS  'MIN(workhour)'
+FROM employee1
+GROUP BY jdate
+HAVING MIN(workhour) < 10;
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="868" height="492" alt="image" src="https://github.com/user-attachments/assets/11450f6c-541f-4744-b7d5-9d7a4baca9bc" />
+
 
 **Question 5**
----
--- Paste Question 5 here
+```
+Write the SQL query that accomplishes the grouping of data by age, calculates the maximum income for each age group, and includes only those age groups where the maximum income is greater than 2,000,000.
+```
+<img width="1077" height="271" alt="image" src="https://github.com/user-attachments/assets/35e96c89-df0f-4362-a906-89619373f5bf" />
 
-```sql
--- Paste your SQL code below for Question 5
+
+
+```
+SELECT age, MAX(income) AS 'MAX(income)'
+FROM employee
+GROUP BY age
+HAVING MAX(income) > 2000000;
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="1271" height="427" alt="image" src="https://github.com/user-attachments/assets/8f457922-a3ca-4dfd-a918-e8f9758bda05" />
+
 
 **Question 6**
----
--- Paste Question 6 here
+```
+Write the SQL query that accomplishes the selection of number of products for each category from products table which includes only those products where the category ID is greater than 2.
+```
+<img width="1071" height="315" alt="image" src="https://github.com/user-attachments/assets/014abe1c-c0b7-4b04-aa3f-6aae187a7820" />
 
-```sql
--- Paste your SQL code below for Question 6
+
+
+```
+SELECT category_id, COUNT(*) AS COUNT
+FROM products
+WHERE category_id > 2
+GROUP BY category_id;
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="967" height="387" alt="image" src="https://github.com/user-attachments/assets/d2202bdb-1a21-4434-88a6-01364355fe28" />
+
 
 **Question 7**
----
--- Paste Question 7 here
+```
+Write a SQL Query to find how many medications are prescribed for each patient?
 
-```sql
--- Paste your SQL code below for Question 7
+Sample table:MedicalRecords Table
+````
+
+<img width="1323" height="179" alt="image" src="https://github.com/user-attachments/assets/02ff9315-2c58-40a4-9bf1-943ecc189507" />
+
+
+
+```
+SELECT PatientID,COUNT(medications) AS AvgMedications
+FROM MedicalRecords
+GROUP BY PatientID;
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="990" height="626" alt="image" src="https://github.com/user-attachments/assets/ce60f4ad-df38-416c-8b8f-9c9d088811e1" />
+
 
 **Question 8**
----
--- Paste Question 8 here
+```
+How many prescriptions were written in each frequency category (e.g., once daily, twice daily)? Sample tablePrescriptions Table
+```
+<img width="1275" height="172" alt="image" src="https://github.com/user-attachments/assets/cae8010c-eff3-445f-a2cb-108149b399b7" />
 
-```sql
--- Paste your SQL code below for Question 8
+
+
+```
+SELECT Frequency,COUNT(Frequency) AS  TotalPrescriptions
+FROM Prescriptions 
+GROUP BY Frequency;
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="886" height="596" alt="image" src="https://github.com/user-attachments/assets/215c6c3d-49ec-4b75-aada-60181dd260ed" />
+
 
 **Question 9**
----
--- Paste Question 9 here
+```
+What is the total number of appointments scheduled by each doctor?
 
-```sql
--- Paste your SQL code below for Question 9
+Sample table:Appointments Table
+```
+<img width="1303" height="214" alt="image" src="https://github.com/user-attachments/assets/030327c3-24b1-452b-a1da-b9487f64580a" />
+
+
+```
+SELECT DoctorID,COUNT(*) AS TotalAppointments
+FROM Appointments 
+GROUP BY DoctorID;
 ```
 
 **Output:**
+<img width="1054" height="711" alt="image" src="https://github.com/user-attachments/assets/0e1fff76-978a-4b6e-b93a-09d35c5fb534" />
 
-![Output9](output.png)
 
 **Question 10**
----
--- Paste Question 10 here
+```
+ Write a SQL query to return the total number of rows in the 'customer' table where the city is Noida. Sample table:
+```
+<img width="1125" height="220" alt="image" src="https://github.com/user-attachments/assets/0f415664-9fc9-44e0-b716-9985993b72b3" />
 
-```sql
--- Paste your SQL code below for Question 10
+
+```
+select count(city)as COUNT
+from customer
+where city='Noida';
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="884" height="361" alt="image" src="https://github.com/user-attachments/assets/a00adb73-2c1e-4c46-97c6-886aa177df0b" />
+
 
 
 ## RESULT
